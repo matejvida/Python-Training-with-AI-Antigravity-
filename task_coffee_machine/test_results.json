@@ -1,0 +1,168 @@
+{
+  "timestamp": "2026-08-23T10:24:43.484993+00:00",
+  "summary": {
+    "total_tests": 19,
+    "passed": 19,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "success_rate_percent": 100.0,
+    "failure_rate_percent": 0.0,
+    "duration_seconds": 0.0017
+  },
+  "failed_test_cases": [],
+  "test_cases": [
+    {
+      "id": "test_e2e_insufficient_funds_latte",
+      "name": "test_e2e_insufficient_funds_latte",
+      "class_name": "TestCoffeeMachineE2E",
+      "status": "PASS",
+      "duration_seconds": 0.0001,
+      "logs": "[EXEC] Running TestCoffeeMachineE2E.test_e2e_insufficient_funds_latte... [PASS] (0.0001s)"
+    },
+    {
+      "id": "test_e2e_insufficient_resource_depletion",
+      "name": "test_e2e_insufficient_resource_depletion",
+      "class_name": "TestCoffeeMachineE2E",
+      "status": "PASS",
+      "duration_seconds": 0.0001,
+      "logs": "[EXEC] Running TestCoffeeMachineE2E.test_e2e_insufficient_resource_depletion... [PASS] (0.0001s)"
+    },
+    {
+      "id": "test_e2e_successful_latte_purchase",
+      "name": "test_e2e_successful_latte_purchase",
+      "class_name": "TestCoffeeMachineE2E",
+      "status": "PASS",
+      "duration_seconds": 0.0001,
+      "logs": "[EXEC] Running TestCoffeeMachineE2E.test_e2e_successful_latte_purchase... [PASS] (0.0001s)"
+    },
+    {
+      "id": "test_animate_alert",
+      "name": "test_animate_alert",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_animate_alert... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_animate_brewing",
+      "name": "test_animate_brewing",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_animate_brewing... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_animate_shutdown",
+      "name": "test_animate_shutdown",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_animate_shutdown... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_is_resource_sufficient_false_coffee",
+      "name": "test_is_resource_sufficient_false_coffee",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_is_resource_sufficient_false_coffee... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_is_resource_sufficient_false_milk",
+      "name": "test_is_resource_sufficient_false_milk",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_is_resource_sufficient_false_milk... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_is_resource_sufficient_false_water",
+      "name": "test_is_resource_sufficient_false_water",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_is_resource_sufficient_false_water... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_is_resource_sufficient_true",
+      "name": "test_is_resource_sufficient_true",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_is_resource_sufficient_true... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_is_transaction_successful_exact",
+      "name": "test_is_transaction_successful_exact",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_is_transaction_successful_exact... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_is_transaction_successful_excess",
+      "name": "test_is_transaction_successful_excess",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_is_transaction_successful_excess... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_is_transaction_successful_insufficient",
+      "name": "test_is_transaction_successful_insufficient",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_is_transaction_successful_insufficient... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_make_coffee",
+      "name": "test_make_coffee",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_make_coffee... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_print_logo",
+      "name": "test_print_logo",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_print_logo... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_print_menu",
+      "name": "test_print_menu",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_print_menu... [PASS] (0.0s)"
+    },
+    {
+      "id": "test_print_report",
+      "name": "test_print_report",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0001,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_print_report... [PASS] (0.0001s)"
+    },
+    {
+      "id": "test_process_coins_retry_negative",
+      "name": "test_process_coins_retry_negative",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0002,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_process_coins_retry_negative... [PASS] (0.0002s)"
+    },
+    {
+      "id": "test_process_coins_valid",
+      "name": "test_process_coins_valid",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.0003,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_process_coins_valid... [PASS] (0.0003s)"
+    }
+  ]
+}

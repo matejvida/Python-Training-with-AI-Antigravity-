@@ -1,74 +1,126 @@
-# Product Requirements Document (PRD): Coffee Machine Program
+# Product Requirements Document (PRD): Retro CLI GUI Coffee Machine Program
 
 ## 1. Overview & Objective
-The Coffee Machine Program is a command-line interface (CLI) application that simulates an automated coffee vending machine. It manages internal resources (water, milk, coffee), handles user transactions via coin inputs, dispenses coffee drinks, calculates change, and keeps track of accumulated monetary profit.
+The Coffee Machine Program is a retro-styled command-line interface (CLI GUI) application that simulates an automated coffee vending machine. It features ASCII art visuals, step-by-step animations for drink preparation and coin processing, resource management (water, milk, coffee), monetary transaction handling, and maintainer reporting. Additionally, the project includes an automated test reporter exporting structured JSON metrics (`test_results.json`) for downstream web visualization.
 
 ---
 
 ## 2. Target Users
-- **Customers**: Select drinks, insert coins, receive drinks and change.
-- **Maintainers**: Inspect internal machine resources via secret reports and shut down the machine for maintenance.
+- **Customers**: View retro ASCII menu, select drinks, insert coins with visual feedback, watch brewing animations, receive drinks and change.
+- **Maintainers**: Inspect internal machine resources via secret reports and shut down the machine with a retro animation sequence.
+- **Developers / Web Dashboard Integrators**: Consume human-readable `test_results.json` reports to monitor test success ratios and graph execution analytics.
 
 ---
 
 ## 3. Functional Requirements
 
 ### FR-1: User Prompt & Navigation Loop
-- The machine prompts: `"What would you like? (espresso/latte/cappuccino): "`
-- Actions repeat continuously after every operation (dispensing a drink, displaying a report, handling invalid input) until turned off.
+- Display retro ASCII Coffee Machine logo header at startup and before menu display.
+- Present prompt: `"What would you like? (espresso/latte/cappuccino): "`
+- Prompt loop repeats continuously after drink completion, report display, or invalid input.
 
 ### FR-2: Maintainer Control - Turn Off
-- When input is `"off"`, the machine immediately terminates execution.
+- Input `"off"` triggers an animated retro shutdown sequence (`"SHUTTING DOWN...", "SAVING STATE...", "GOODBYE!"`) and ends execution.
 
 ### FR-3: Maintainer Control - Print Report
-- When input is `"report"`, print current resource levels and accumulated profit in the exact format:
+- Input `"report"` displays boxed ASCII resource report:
   ```text
-  Water: 100ml
-  Milk: 50ml
-  Coffee: 76g
-  Money: $2.5
+  +--------------------------+
+  |  COFFEE MACHINE REPORT   |
+  +--------------------------+
+  | Water:  100ml            |
+  | Milk:   50ml             |
+  | Coffee: 76g              |
+  | Money:  $2.50            |
+  +--------------------------+
   ```
 
 ### FR-4: Resource Management & Availability Check
-- **Initial Resources**:
-  - Water: `300ml`
-  - Milk: `200ml`
-  - Coffee: `100g`
-  - Money (Profit): `$0.0`
-- **Drink Specifications**:
-  - **Espresso**: Water `50ml`, Milk `0ml`, Coffee `18g`, Cost `$1.50`
-  - **Latte**: Water `200ml`, Milk `150ml`, Coffee `24g`, Cost `$2.50`
-  - **Cappuccino**: Water `250ml`, Milk `100ml`, Coffee `24g`, Cost `$3.00`
-- **Sufficiency Check**: Before asking for coins, verify whether enough water, milk, and coffee exist for the chosen drink.
-  - If resource is insufficient, print: `"Sorry there is not enough <resource>."` (e.g., `"Sorry there is not enough water."`) and return to the main prompt without deducting resources or requesting coins.
+- **Initial Resources**: Water `300ml`, Milk `200ml`, Coffee `100g`, Profit `$0.00`.
+- **Recipes**:
+  - Espresso: Water 50ml, Milk 0ml, Coffee 18g | Price: $1.50
+  - Latte: Water 200ml, Milk 150ml, Coffee 24g | Price: $2.50
+  - Cappuccino: Water 250ml, Milk 100ml, Coffee 24g | Price: $3.00
+- If resources are insufficient, trigger alert animation: `"⚠️  SORRY: Not enough <resource>!"`.
 
-### FR-5: Coin Processing
-- Prompt the user to enter coin counts:
-  - Quarters (`$0.25`)
-  - Dimes (`$0.10`)
-  - Nickels (`$0.05`)
-  - Pennies (`$0.01`)
-- Calculate total inserted value:
-  $$\text{Total} = (0.25 \times Q) + (0.10 \times D) + (0.05 \times N) + (0.01 \times P)$$
+### FR-5: Coin Processing & Insertion Animation
+- Prompt user for Quarters ($0.25), Dimes ($0.10), Nickels ($0.05), Pennies ($0.01).
+- Show step-by-step coin insertion tally animation as each coin type is entered.
 
 ### FR-6: Financial Transaction Validation & Change
-- Compare monetary value inserted against drink cost:
-  - **Insufficient Funds**: Print `"Sorry that's not enough money. Money refunded."` (no resources deducted, money not added to machine profit).
-  - **Exact Funds**: Add drink cost to machine profit, deduct ingredients, dispense drink.
-  - **Excess Funds**: Calculate change $\text{Change} = \text{Inserted} - \text{Cost}$, rounded to 2 decimal places. Print `"Here is $<change> dollars in change."`, add drink cost to machine profit, deduct ingredients, dispense drink.
+- Compare inserted total against drink cost.
+- **Insufficient Funds**: Trigger refund alert animation `"⚠️  SORRY: Not enough money. Refunded: $<amount>"`.
+- **Exact / Excess Funds**: Display change alert `"💰  Change: $<amount>"` (rounded to 2 decimal places) and proceed to brewing.
 
-### FR-7: Drink Preparation & Resource Deduction
-- Deduct recipe ingredients from current resources.
-- Output: `"Here is your <drink>. Enjoy!"` (e.g., `"Here is your latte. Enjoy!"`).
-
----
-
-## 4. Edge Cases & Error Handling
-- **Depleted Resources**: Handle cases where multiple resources are missing by reporting the first missing resource.
-- **Negative / Non-numeric Coin Input**: Treat invalid coin input gracefully (convert invalid entries to 0 or raise clear prompt retry).
-- **Unknown Input**: Ignore unrecognized prompt options or notify user and re-prompt.
+### FR-7: Drink Preparation & Completion Animations
+- Display multi-frame brewing animation:
+  1. `[1/4] ⚙️  Grinding fresh coffee beans...`
+  2. `[2/4] 💧  Heating water to optimal temperature...`
+  3. `[3/4] 🥛  Steaming milk (if applicable)...`
+  4. `[4/4] ☕  Brewing & dispensing drink...`
+  5. Animated progress bar `[████████████████████] 100%`
+- Output final ASCII cup: `"HERE IS YOUR <DRINK>! ENJOY! ☕"` and return to prompt loop.
 
 ---
 
-## 5. Revision History
-- **v1.0 (2026-08-23)**: Initial PRD created based on course requirements.
+## 4. Retro CLI GUI Design Specification
+- **Logo Banner**: Top ASCII header rendered on startup and menu display.
+- **Boxed Layouts**: Double-line or standard border boxes for menu choices, reports, and warnings.
+- **Configurable Animation Delay**: All visual delay loops use `animation_delay` (default `0.1s` for CLI interactive mode; set to `0.0s` during automated test execution for instant performance).
+
+---
+
+## 5. JSON Test Reporting & Console Logging Specification
+Automated test suite (`test_main.py`) exports `test_results.json` upon execution.
+
+### JSON Schema Structure (`test_results.json`)
+```json
+{
+  "timestamp": "2026-08-23T12:00:00Z",
+  "summary": {
+    "total_tests": 18,
+    "passed": 18,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "success_rate_percent": 100.0,
+    "failure_rate_percent": 0.0,
+    "duration_seconds": 0.025
+  },
+  "failed_test_cases": [],
+  "test_cases": [
+    {
+      "id": "TC-U01",
+      "name": "test_print_report",
+      "class_name": "TestCoffeeMachineUnit",
+      "status": "PASS",
+      "duration_seconds": 0.001,
+      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_print_report... [PASS]"
+    }
+  ]
+}
+```
+
+### Live Console Output Format
+During `python3 task_coffee_machine/test_main.py` execution:
+```text
+======================================================================
+           COFFEE MACHINE AUTOMATED TEST SUITE EXECUTION
+======================================================================
+[EXEC] Running TestCoffeeMachineUnit.test_print_report... [PASS] (0.001s)
+[EXEC] Running TestCoffeeMachineUnit.test_is_resource_sufficient_true... [PASS] (0.001s)
+...
+----------------------------------------------------------------------
+EXECUTION SUMMARY:
+- Timestamp: 2026-08-23T12:00:00Z
+- Total Tests: 18 | Passed: 18 | Failed: 0 | Errors: 0
+- Success Rate: 100.00% | Failure Rate: 0.00%
+- Report Saved: task_coffee_machine/test_results.json
+======================================================================
+```
+
+---
+
+## 6. Revision History
+- **v1.0 (2026-08-23)**: Initial PRD created with core requirements.
+- **v2.0 (2026-08-23)**: Expanded with Retro CLI GUI specification, brewing/coin animations, live console test logger, `test_results.json` schema, and root README integration.
