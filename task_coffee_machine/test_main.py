@@ -136,7 +136,21 @@ class JSONTestResult(unittest.TestResult):
         success_rate = round((passed_count / total_tests * 100), 2) if total_tests > 0 else 0.0
         failure_rate = round(((failed_count + error_count) / total_tests * 100), 2) if total_tests > 0 else 0.0
 
-        report_data = {
+        history: List[Dict[str, Any]] = []
+        if os.path.exists(filepath):
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    existing_data = json.load(f)
+                    if isinstance(existing_data, list):
+                        history = existing_data
+                    elif isinstance(existing_data, dict):
+                        history = [existing_data]
+            except Exception:
+                history = []
+
+        run_number = len(history) + 1
+        run_data = {
+            "execution_id": run_number,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "summary": {
                 "total_tests": total_tests,
@@ -152,17 +166,20 @@ class JSONTestResult(unittest.TestResult):
             "test_cases": self.test_records
         }
 
+        history.append(run_data)
+
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
         with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(report_data, f, indent=2)
+            json.dump(history, f, indent=2)
 
         print("-" * 70)
         print("📊 EXECUTION SUMMARY:")
-        print(f"  - Date & Time: {report_data['timestamp']}")
+        print(f"  - Execution ID: #{run_number} (Total Runs Recorded: {len(history)})")
+        print(f"  - Date & Time: {run_data['timestamp']}")
         print(f"  - Total Tests: {total_tests} | Passed: {passed_count} | Failed: {failed_count} | Errors: {error_count}")
         print(f"  - Success Rate: {success_rate:.2f}% | Failure Rate: {failure_rate:.2f}%")
         print(f"  - Total Duration: {total_duration}s")
-        print(f"  - JSON Report Exported: {filepath}")
+        print(f"  - JSON Report Appended To: {filepath}")
         print("=" * 70 + "\n")
 
 

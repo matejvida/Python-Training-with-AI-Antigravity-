@@ -74,31 +74,35 @@ The Coffee Machine Program is a retro-styled command-line interface (CLI GUI) ap
 Automated test suite (`test_main.py`) exports `test_results.json` upon execution.
 
 ### JSON Schema Structure (`test_results.json`)
+The `test_results.json` file contains a JSON array of historical execution runs:
 ```json
-{
-  "timestamp": "2026-08-23T12:00:00Z",
-  "summary": {
-    "total_tests": 18,
-    "passed": 18,
-    "failed": 0,
-    "errors": 0,
-    "skipped": 0,
-    "success_rate_percent": 100.0,
-    "failure_rate_percent": 0.0,
-    "duration_seconds": 0.025
-  },
-  "failed_test_cases": [],
-  "test_cases": [
-    {
-      "id": "TC-U01",
-      "name": "test_print_report",
-      "class_name": "TestCoffeeMachineUnit",
-      "status": "PASS",
-      "duration_seconds": 0.001,
-      "logs": "[EXEC] Running TestCoffeeMachineUnit.test_print_report... [PASS]"
-    }
-  ]
-}
+[
+  {
+    "execution_id": 1,
+    "timestamp": "2026-08-23T10:38:54.935053+00:00",
+    "summary": {
+      "total_tests": 19,
+      "passed": 19,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success_rate_percent": 100.0,
+      "failure_rate_percent": 0.0,
+      "duration_seconds": 0.0021
+    },
+    "failed_test_cases": [],
+    "test_cases": [
+      {
+        "id": "test_print_report",
+        "name": "test_print_report",
+        "class_name": "TestCoffeeMachineUnit",
+        "status": "PASS",
+        "duration_seconds": 0.001,
+        "logs": "[EXEC] Running TestCoffeeMachineUnit.test_print_report... [PASS] (0.001s)"
+      }
+    ]
+  }
+]
 ```
 
 ### Live Console Output Format
