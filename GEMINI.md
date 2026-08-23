@@ -22,8 +22,9 @@
 - **Human-Readable JSON Test Export (`test_results.json`)**: Formatted JSON report output after every test run, recording execution date/time, pass/fail ratios, detailed failed test tracebacks, and individual test metrics for downstream web dashboard/graph visualization.
 - **Test Case Documentation (`TEST_CASES.md`)**: Create a `TEST_CASES.md` document describing every test scenario in detail, with explicit cross-references/links to the corresponding test functions in `test_main.py`.
 
-## Code Indexing & Context Access
+## Code Indexing & Path-Agnostic Documentation
 - **Subfolder Index (`INDEX.md`)**: Maintain an `INDEX.md` file in each task directory that maps and links all components (`PRD.md`, `main.py`, `test_main.py`, `TEST_CASES.md`, `test_results.json`) for instant navigation and context retrieval.
+- **Repository-Relative Paths (Path Agnostic)**: All file links and paths across all documentation (`INDEX.md`, `PRD.md`, `TEST_CASES.md`, `README.md`) MUST be relative to the git repository root or current subfolder (e.g. `[PRD.md](PRD.md)` or `./main.py`). NEVER use absolute computer directory paths (e.g. `/Users/...` or `file:///Users/...`) in documentation files.
 
 ## Python Code Standards & Inline Documentation
 - **Module Docstrings**: Every `.py` file must start with a comprehensive docstring describing the lesson goal, key concepts, and usage instructions.

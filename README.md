@@ -33,19 +33,19 @@ PythonUdemy/
 
 ## 📖 Subfolder Component Standard
 
-Each task directory adheres to strict quality and documentation standards:
+Each task directory adheres to strict quality and documentation standards (all links are repository-relative and path-agnostic):
 
-1. **`PRD.md` (Product Requirements Document)**:
+1. **Product Requirements Document ([`PRD.md`](task_coffee_machine/PRD.md))**:
    Details project goals, functional specifications, UI specs (retro CLI GUI ASCII art/animations), data models, and edge cases.
-2. **`main.py` (Source Code)**:
+2. **Main Implementation ([`main.py`](task_coffee_machine/main.py))**:
    Clean, Pythonic implementation using type hints, module docstrings, function docstrings, and step-by-step inline educational comments.
-3. **`test_main.py` (Automated Test Suite & JSON Reporter)**:
+3. **Automated Test Suite ([`test_main.py`](task_coffee_machine/test_main.py))**:
    Includes unit and E2E simulation tests. Outputs live progress logs to the console and exports human-readable `test_results.json` reports.
-4. **`test_results.json` (Formatted Test Output)**:
+4. **JSON Execution Report ([`test_results.json`](task_coffee_machine/test_results.json))**:
    Captures ISO-8601 execution timestamps, pass/fail ratios, duration, failed test tracebacks, and individual test records for web dashboard visualization.
-5. **`TEST_CASES.md` (Test Documentation)**:
+5. **Test Documentation ([`TEST_CASES.md`](task_coffee_machine/TEST_CASES.md))**:
    Describes every test scenario in plain language and cross-references its exact function implementation in `test_main.py`.
-6. **`INDEX.md` (Navigation Map)**:
+6. **Task Navigation Index ([`INDEX.md`](task_coffee_machine/INDEX.md))**:
    Subfolder index linking all PRD, source, test, report, and documentation files.
 
 ---
