@@ -5,12 +5,28 @@
 - **Single-File Preference**: Keep each task/project in a single main Python script (e.g., `main.py` or `<task_name>.py`). Split into multiple source files only if there is a distinct educational benefit (e.g., teaching custom modules, OOP package structure, etc.).
 - **Modern Python Paradigms & Idiomatic Code**: Use the latest Python standards, modern features (Python 3.10+ / 3.12+ features where relevant), and PEP 8 style conventions. Write clean, Pythonic, and idiomatic code and documentation.
 
-## Folder & Git Structure
-- **Dedicated Subfolders**: Each task, exercise, or lesson must be generated in its own subfolder within the workspace root (e.g., `day_01_basics/`, `task_02_loops/`). Never create standalone Python scripts directly in the root directory.
-- **Git Branching Workflow**:
-  - Each day or task must be developed on a dedicated git branch (e.g., `feature/day-01-basics` or `task/day-01-basics`).
-  - Keep commits clean and descriptive.
-- **Root Repository README**: Maintain a comprehensive `README.md` in the repository root detailing project overview, directory structure, system prerequisites, and execution commands.
+## Git Repository & Remote Setup
+- **Default Origin Remote**: `https://github.com/matejvida/Python-Training-with-AI-Antigravity-.git`
+- **Primary Base Branch**: `main`
+- **Branching Structure**: Every task/lesson is developed on its own branch using `task/<task-name>` or `feature/<task-name>` (e.g., `task/coffee-machine`, `feature/day-01-basics`).
+- **Instructions for Cloned Environments**:
+  Anyone cloning this repository MUST inspect and adjust their Git remote setup before starting work:
+  1. Check current origin remote configuration:
+     ```bash
+     git remote -v
+     ```
+  2. If using a personal fork or custom repository remote, update the origin URL:
+     ```bash
+     git remote set-url origin <your-personal-repo-url>
+     ```
+  3. Verify base branch is aligned with `main`:
+     ```bash
+     git checkout main && git pull origin main
+     ```
+
+## Folder & Subfolder Structure
+- **Dedicated Subfolders**: Each task, exercise, or lesson must be generated in its own subfolder within the workspace root (e.g., `day_01_basics/`, `task_coffee_machine/`). Never create standalone Python scripts directly in the root directory.
+- **Root Repository README**: Maintain a comprehensive `README.md` in the repository root detailing project overview, directory structure, git setup, system prerequisites, and execution commands.
 
 ## Task Requirements & Documentation (PRD)
 - **Product Requirements Document (`PRD.md`)**: Create a clear, readable `PRD.md` in the task subfolder detailing goal, functional requirements, input/output specifications, user interfaces (CLI/GUI), and edge cases.
@@ -19,7 +35,7 @@
 ## Testing, Test Case Documentation & JSON Reporting
 - **Separate Test Suite (`test_main.py`)**: Create a dedicated test script inside the task subfolder containing unit tests and end-to-end (E2E) tests.
 - **Live Console Logging**: Print clear progress logs in console during test execution detailing each test case and its result, followed by a final summary block.
-- **Human-Readable JSON Test Export (`test_results.json`)**: Formatted JSON report output after every test run, recording execution date/time, pass/fail ratios, detailed failed test tracebacks, and individual test metrics for downstream web dashboard/graph visualization.
+- **Human-Readable JSON Test Export (`test_results.json`)**: Formatted JSON array report output after every test run, recording execution date/time, pass/fail ratios, detailed failed test tracebacks, and individual test metrics for downstream web dashboard/graph visualization.
 - **Test Case Documentation (`TEST_CASES.md`)**: Create a `TEST_CASES.md` document describing every test scenario in detail, with explicit cross-references/links to the corresponding test functions in `test_main.py`.
 
 ## Code Indexing & Path-Agnostic Documentation

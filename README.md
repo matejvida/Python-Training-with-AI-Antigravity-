@@ -4,6 +4,36 @@ Welcome to the Python Udemy Learning workspace! This repository is dedicated to 
 
 ---
 
+## 🐙 Git Remote Setup & Branching Guidelines
+
+### Remote Repository & Branching Structure
+- **Default Remote Origin**: `https://github.com/matejvida/Python-Training-with-AI-Antigravity-.git`
+- **Primary Base Branch**: `main`
+- **Feature/Task Branching**: Every lesson, exercise, or project is developed on its own dedicated branch using `task/<task-name>` or `feature/<task-name>` (e.g. `task/coffee-machine`, `feature/day-01-basics`).
+
+### Setup Instructions for Cloned Environments
+If you are cloning this repository to work locally or under a personal fork, adjust your Git remote setup before starting work:
+
+1. **Verify Current Remote Configuration**:
+   ```bash
+   git remote -v
+   ```
+2. **Set/Update Your Origin Remote URL** (if using your own fork or custom repository):
+   ```bash
+   git remote set-url origin <your-git-repo-url>
+   ```
+3. **Synchronize with Base Branch (`main`)**:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+4. **Create a Dedicated Branch for a New Task**:
+   ```bash
+   git checkout -b task/<task-name>
+   ```
+
+---
+
 ## 🚀 Repository Architecture & Subfolder Structure
 
 Every course task, project, or exercise is maintained in its own dedicated subfolder with a complete documentation and test suite:
@@ -71,19 +101,22 @@ python3 task_coffee_machine/test_main.py
 The test suite exports JSON data structured specifically for web interface graph visualization:
 
 ```json
-{
-  "timestamp": "2026-08-23T10:24:30.320831+00:00",
-  "summary": {
-    "total_tests": 19,
-    "passed": 19,
-    "failed": 0,
-    "errors": 0,
-    "skipped": 0,
-    "success_rate_percent": 100.0,
-    "failure_rate_percent": 0.0,
-    "duration_seconds": 0.001
-  },
-  "failed_test_cases": [],
-  "test_cases": [ ... ]
-}
+[
+  {
+    "execution_id": 1,
+    "timestamp": "2026-08-23T10:38:54.935053+00:00",
+    "summary": {
+      "total_tests": 19,
+      "passed": 19,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success_rate_percent": 100.0,
+      "failure_rate_percent": 0.0,
+      "duration_seconds": 0.0021
+    },
+    "failed_test_cases": [],
+    "test_cases": [ ... ]
+  }
+]
 ```
